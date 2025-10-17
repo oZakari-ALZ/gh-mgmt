@@ -54,7 +54,7 @@
       "value": "eastus2"
     },
     "parAutomationAccountUseManagedIdentity": {
-      "value": true
+      "value": false
     },
     "parAutomationAccountPublicNetworkAccess": {
       "value": true
@@ -130,3 +130,4 @@
     }
   }
 }
+
