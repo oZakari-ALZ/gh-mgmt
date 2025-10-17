@@ -55,15 +55,15 @@ jobs:
       id-token: write
       contents: read
     with:
-      skip_what_if: ${{ inputs.skip_what_if }}
-      destroy: ${{ inputs.destroy }}
-      management_groups: ${{ inputs.management_groups }}
-      logging_and_sentinel_resource_group: ${{ inputs.logging_and_sentinel }}
-      logging_and_sentinel: ${{ inputs.logging_and_sentinel }}
-      custom_policy_definitions: ${{ inputs.policy_definitions }}
-      custom_role_definitions: ${{ inputs.role_definitions }}
-      management_group_diagnostic_settings: ${{ inputs.management_group_diagnostic_settings }}
-      policy_assignments: ${{ inputs.policy_assignments }}
-      workload_specific_policy_assignments: ${{ inputs.policy_assignments }}
-      subscription_placement: ${{ inputs.subscription_placement }}
-      connectivity_resource_group: ${{ inputs.connectivity }}
+      skip_what_if: ${{ fromJSON((inputs.skip_what_if != '' && inputs.skip_what_if) || 'false') }}
+      destroy: ${{ fromJSON((inputs.destroy != '' && inputs.destroy) || 'false') }}
+      management_groups: ${{ fromJSON((inputs.management_groups != '' && inputs.management_groups) || 'true') }}
+      logging_and_sentinel_resource_group: ${{ fromJSON((inputs.logging_and_sentinel != '' && inputs.logging_and_sentinel) || 'true') }}
+      logging_and_sentinel: ${{ fromJSON((inputs.logging_and_sentinel != '' && inputs.logging_and_sentinel) || 'true') }}
+      custom_policy_definitions: ${{ fromJSON((inputs.policy_definitions != '' && inputs.policy_definitions) || 'true') }}
+      custom_role_definitions: ${{ fromJSON((inputs.role_definitions != '' && inputs.role_definitions) || 'true') }}
+      management_group_diagnostic_settings: ${{ fromJSON((inputs.management_group_diagnostic_settings != '' && inputs.management_group_diagnostic_settings) || 'true') }}
+      policy_assignments: ${{ fromJSON((inputs.policy_assignments != '' && inputs.policy_assignments) || 'true') }}
+      workload_specific_policy_assignments: ${{ fromJSON((inputs.policy_assignments != '' && inputs.policy_assignments) || 'true') }}
+      subscription_placement: ${{ fromJSON((inputs.subscription_placement != '' && inputs.subscription_placement) || 'true') }}
+      connectivity_resource_group: ${{ fromJSON((inputs.connectivity != '' && inputs.connectivity) || 'true') }}
